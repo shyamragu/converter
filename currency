@@ -1,0 +1,33 @@
+currency = {"INR": 1, "EUR": 0.0109, "USD":
+    0.0119, "SGD": 0.0158, "AUD": 0.01812, "JPY": 1.7463, "CAD": 0.01635, "RUB":1.0536 ,"PKR":3.3192,"NZD":0.01986,"GBP ":0.009335}
+def currency_converter(fromm, to, amount):
+    if fromm in currency or to in currency:
+        india = amount / currency[fromm]
+        convert_amount = india * currency[to]
+        return (fromm, amount, "CONVERTED TO", to, convert_amount)
+    else:
+        return "INVALID CURRENCY CODE"
+
+
+def menu():
+    print("")
+    print("CURRENCY CONVERT")
+    print("1.CONVERT CURRENCY")
+    print("2.EXIT")
+
+
+def main():
+    while True:
+        menu()
+        a = int(input("ENTER YOUR CHOICE :"))
+        if a == 1:
+            amount = int(input("ENTER YOUR AMOUNT :"))
+            print("INR", "EUR", "USD", "SGD", "AUD", "JPY", "CAD", "RUB",
+                  "PKR", "NZD", "GBP")
+            fromm = input("YOUR CURRENCY :").upper()
+            to = input("CONVERT CURRENCY :").upper()
+            print(currency_converter(fromm, to, amount))
+        else:
+            break
+if '__main__' == main():
+        main()
